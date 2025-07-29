@@ -8,15 +8,19 @@ function App() {
   const [showHeader1Dropdown, setShowHeader1Dropdown] = useState(false);
   const [showHeader3Dropdown, setShowHeader3Dropdown] = useState(false);
   // State for button text
-  const [header1ButtonText, setHeader1ButtonText] = useState('Options');
-  const [header3ButtonText, setHeader3ButtonText] = useState('Continents');
+  const [header1ButtonText, setHeader1ButtonText] = useState('Sort by');
+  const [header3ButtonText, setHeader3ButtonText] = useState('Filter by Continents');
+  // State for filters and sorting
+  const [sortCriteria, setSortCriteria] = useState('');
+  const [continentFilter, setContinentFilter] = useState('')
   // State for action message
   const [actionMessage, setActionMessage] = useState('');
   // State for search
   const [searchTerm, setSearchTerm] = useState('');
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
-
+  // State for debounced search
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
   // Fetch countries from REST Countries API
   const API_URL = "https://restcountries.com/v3.1/independent?status=true"
   useEffect(()=> {
@@ -28,7 +32,10 @@ function App() {
       const response = await axios.get(API_URL)
       const data =  response.data
       
-      if (data) setCountries(data)
+      if (data) {
+        setCountries(data)
+        setFilteredCountries(data)
+      }  
       
 
     } catch (error) {
@@ -36,7 +43,13 @@ function App() {
     }
   }
 
-  
+  // Debounce search term
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 300); // 300ms debounce
+    return () => clearTimeout(handler);
+  }, [searchTerm])
 
 
   // Filter countries based on search term
