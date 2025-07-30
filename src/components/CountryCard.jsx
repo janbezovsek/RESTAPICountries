@@ -2,8 +2,6 @@ import {} from 'react'
 import './CountryCard.css'
 
 const CountryCard = ({country, style}) => {
-
-
   return (
     <div className='countryCard' style={style}>
         <img src={country.flags.svg} alt={country.name.common} className='flag' />
@@ -22,6 +20,7 @@ const CountryCard = ({country, style}) => {
                     .join(', ')
                 : 'No currency data available'
             }</p>
+            <p><strong>Time Zones: {country.timezones?.join(', ') || 'N/A'}</strong></p>
             <p><strong>Map: </strong>
             {country.maps ? (
                 <>
@@ -32,15 +31,12 @@ const CountryCard = ({country, style}) => {
                     >
                       Open in Google Maps
                     </a>
-                
                   </>
                   ) : (
                   'No map links available'
-                )}
-                          
+                )}       
             </p>
         </div>
-    
     </div>
   )
 }

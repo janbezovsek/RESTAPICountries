@@ -1,12 +1,25 @@
-# React + Vite
+# REST API countries app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React application created with Vite. It takes informations about countries from https://restcountries.com API and displays them in the app. We can filter countries based on what we chose from header bar. We can search for countries, we can filter them by continents and by populations when all countries are chosen or specific region (continent) is applied. There is also a google maps link besides each country that opens a new tab and directs us to googleMaps. Principles of responsive design where taken into account so that the app can be used either with computers, phones or smart pads. 
 
-Currently, two official plugins are available:
+----
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Alt text](public/countries1.jpg)
 
-## Expanding the ESLint configuration
+----
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+![Alt text](public/countries2.jpg)
+
+----
+
+![Alt text](public/countries3.jpg)
+
+----
+
+![Alt text](public/countries4.jpg)
+
+----
+
+![Alt text](public/countries5.jpg)
+
+
